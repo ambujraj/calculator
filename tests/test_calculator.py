@@ -18,7 +18,7 @@ class TestCalculator(TestCase):
         
     def test_mul(self):
         calculator = Calculator()
-        actual = calculator.multiply(5, 4) #turned 2 to 5
+        actual = calculator.multiply(2, 4) 
         self.assertEqual(8, actual)
 
     def test_div(self):
