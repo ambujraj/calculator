@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-cmd["python3","./src/calculator.py"]
+run python3 src/calculator.py
