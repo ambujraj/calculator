@@ -1,20 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'python:3.8-alpine' }
+    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                bat 'docker pull python'
-                bat 'docker build -t calculator . '
-                bat 'docker run --rm --name my-running-app calculator'
+                sh 'python3 --version'
             }
         }
-        stage('Submit Stack') {
-            
-            steps {
-                withAWS(credentials:'testAmbuj-02'){
-            bat "aws cloudformation create-stack --stack-name ambujstackk --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM"}
-              }
-            
-             }
-        }
     }
+}
