@@ -3,9 +3,9 @@ pipeline {
         docker { image 'python:3.8-alpine' }
     }
     stages {
-        stage('Test') {
+        stage('Testing') {
             steps {
-                sh 'python3 --version'
+                sh 'python3 -m unittest tests/test_calculator.py'
             }
         }
     }
