@@ -17,11 +17,11 @@ class TestCalculator(TestCase):
         self.assertEqual(2, actual)
         
     def test_mul(self):
-        calculator = Calculator()
+        calculator = Calculator() 
         actual = calculator.multiply(2, 4) 
-        self.assertEqual(8, actual)
+        self.assertEqual(8, actual) 
 
     def test_div(self):
-        calculator = Calculator()
-        actual = calculator.divide(4, 2)
-        self.assertEqual(2, actual)
+        calculator = Calculator() 
+        actual = calculator.divide(4, 2) 
+        self.assertEqual(2, actual) 
