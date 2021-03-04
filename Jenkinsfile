@@ -10,10 +10,11 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                withAWS(credentials:'testAmbuj-02')
+                withAWS(credentials:'testAmbuj-02'){
                 sh 'zip –r calculator.zip ../calculator'
                 sh 'aws lambda update-function-code --function-name  lambdacicdambuj --zip-file fileb://calculator.zip'
                 sh 'rm -rf calculator.zip'
+                }
             }
         }
     }
