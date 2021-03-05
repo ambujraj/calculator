@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'ambujj/theambuj:latest' }}
+    agent { docker { image 'ambujj/ambujimage:latest' }}
     
     stages {
         stage('Testing') {

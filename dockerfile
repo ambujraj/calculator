@@ -4,6 +4,7 @@ FROM node:12.16.1-alpine
 # RUN apt-get install python3 -y
 # RUN apt-get install awscli -y
 RUN apk add --no-cache \
+        zip \
         python3 \
         py3-pip \
     && pip3 install --upgrade pip \
