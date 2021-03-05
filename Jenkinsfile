@@ -5,7 +5,7 @@ pipeline {
         stage('Testing') {
             //agent { docker { image 'python:3.8-alpine' }}
             steps {
-                //sh 'python3 -m unittest tests/test_calculator.py'
+                sh 'python3 -m unittest tests/test_calculator.py'
             }
         }
         stage('Deployment') {
