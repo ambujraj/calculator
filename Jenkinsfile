@@ -8,7 +8,9 @@ pipeline {
             }
         }
         stage('Deployment') {
+            agent { docker { image 'amazon/aws-cli:latest' }}
             steps {
+                
                 withAWS(credentials:'491e3108-3778-4906-9703-3f2e83e7cd46'){
                 //sh 'aws s3 sync ../deploytolambda s3://lambdadeploy-ambuj'
                 sh 'zip -r lambdacode.zip src/*'
