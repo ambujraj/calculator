@@ -1,13 +1,13 @@
 pipeline {
-    agent { docker { image 'ambujj/calculatorimage:latest' }}
+    agent { docker { image 'ambujj/theambuj:latest' }}
     
     stages {
-        // stage('Testing') {
-        //     //agent { docker { image 'python:3.8-alpine' }}
-        //     steps {
-        //         //sh 'python3 -m unittest tests/test_calculator.py'
-        //     }
-        // }
+        stage('Testing') {
+            //agent { docker { image 'python:3.8-alpine' }}
+            steps {
+                //sh 'python3 -m unittest tests/test_calculator.py'
+            }
+        }
         stage('Deployment') {
             //agent { docker { image 'amazon/aws-cli:latest' }}
             steps {
