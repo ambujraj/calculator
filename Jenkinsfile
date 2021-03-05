@@ -19,6 +19,7 @@ pipeline {
                 //sh 'aws lambda update-function-code --function-name  lambdacicdambuj --s3-bucket lambdadeploy-ambuj --s3-key src'
                 sh 'cloudformation create-stack --stack-name stackforcicdambuj555 --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM'
                 
+                
                 }
             }
         }
