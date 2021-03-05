@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image 'python:3.8-alpine'
-            image 'amazon/aws-cli:latest' }
+            image 'python:3.8-alpine' }
         
     }
     stages {
@@ -13,6 +12,7 @@ pipeline {
         }
         stage('Deployment') {
             steps {
+                docker{ image 'amazon/aws-cli:latest' }
                 withAWS(credentials:'testAmbuj-02'){
                 
                 sh 'aws s3 cp s3://lambdadeploy-ambuj ../calculator'
