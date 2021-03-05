@@ -10,3 +10,5 @@ class Calculator:
 
     def divide(self, a,b):
         return a/b
+    def printcal(self):
+        print("Hey")
