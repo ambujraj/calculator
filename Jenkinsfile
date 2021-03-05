@@ -10,9 +10,8 @@ pipeline {
         stage('Deployment') {
             agent { docker { image 'amazon/aws-cli:latest' }}
             steps {
-                
                 withAWS(credentials:'testAmbuj-02'){
-                // sh 'aws s3 cp s3://lambdadeploy-ambuj ../calculator'
+                sh 'aws s3 cp s3://lambdadeploy-ambuj ../calculator'
                 sh 'aws lambda update-function-code --function-name  lambdacicdambuj --s3-bucket s3://lambdadeploy-ambuj'
                 //sh 'aws cloudformation create-stack --stack-name stackforcicdambuj3 --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM'
                 }
