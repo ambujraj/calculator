@@ -1,4 +1,4 @@
-FROM python:3
+FROM oisupport/bashbrew:base
 
 WORKDIR /usr/src/app
 
