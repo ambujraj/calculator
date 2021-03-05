@@ -12,7 +12,7 @@ pipeline {
             steps {
                 withAWS(credentials:'491e3108-3778-4906-9703-3f2e83e7cd46'){
                 //sh 'aws s3 sync ../deploytolambda s3://lambdadeploy-ambuj'
-                sh 'zip -r lambdacode.zip *'
+                sh 'zip -r lambdacode.zip src/*'
                 sh 'aws lambda update-function-code --function-name  lambdacicdambuj --zip-file fileb://lambdacode.zip'
                 sh 'rm -rf lambdacode.zip'
                 //sh 'aws lambda update-function-code --function-name  lambdacicdambuj --s3-bucket lambdadeploy-ambuj --s3-key src'
