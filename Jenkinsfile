@@ -14,6 +14,7 @@ pipeline {
                 //sh 'aws s3 cp s3://lambdadeploy-ambuj ../calculator'
                 //sh 'aws lambda update-function-code --function-name  lambdacicdambuj --s3-bucket s3://lambdadeploy-ambuj'
                 sh 'aws cloudformation create-stack --stack-name stackforcicdambuj4 --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM'
+                
                 }
             }
         }
