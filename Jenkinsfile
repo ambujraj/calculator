@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        docker { image 'amazon/aws-cli' }
+        docker { 
+            image 'python:3.8-alpine'
+            image 'amazon/aws-cli:latest' }
         
     }
     stages {
