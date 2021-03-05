@@ -1,7 +1,8 @@
-FROM python:3
+FROM alpine:latest
 
-WORKDIR /usr/src/app
+WORKDIR /Users/jack/.aws
 
 COPY . .
 
-run python3 src/calculator.py
+cmd brew install awscli
+cmd brew install docker

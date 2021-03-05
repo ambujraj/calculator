@@ -1,14 +1,15 @@
 pipeline {
-    agent any
+    agent { docker { image 'ambujj/calculatorimage:latest' }}
+    
     stages {
         stage('Testing') {
-            agent { docker { image 'python:3.8-alpine' }}
+            //agent { docker { image 'python:3.8-alpine' }}
             steps {
                 sh 'python3 -m unittest tests/test_calculator.py'
             }
         }
         stage('Deployment') {
-            agent { docker { image 'amazon/aws-cli:latest' }}
+            //agent { docker { image 'amazon/aws-cli:latest' }}
             steps {
                 
                 withAWS(credentials:'491e3108-3778-4906-9703-3f2e83e7cd46'){
@@ -17,9 +18,9 @@ pipeline {
                 //sh 'aws lambda update-function-code --function-name  lambdacicdambuj --zip-file fileb://lambdacode.zip'
                 //sh 'rm -rf lambdacode.zip'
                 //sh 'aws lambda update-function-code --function-name  lambdacicdambuj --s3-bucket lambdadeploy-ambuj --s3-key src'
-                sh 'cloudformation create-stack --stack-name stackforcicdambuj555 --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM'
+                sh 'aws cloudformation create-stack --stack-name stackforcicdambuj5555 --template-body file://formation.json --capabilities CAPABILITY_NAMED_IAM'
                 
-                
+
                 }
             }
         }
